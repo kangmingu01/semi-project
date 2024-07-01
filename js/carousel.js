@@ -3,22 +3,23 @@ $(document).ready(function () {
     {
       id: 1,
       img: "../assets/Carousel/keyboard_image1.jpg",
-      name: "Bridge75",
+      name: "MODE The New SixtyFive",
     },
     {
       id: 2,
       img: "../assets/Carousel/keyboard_image2.jpg",
-      name: "네어고",
+      name: "",
     },
     {
       id: 3,
       img: "../assets/Carousel/keyboard_image3.jpg",
-      name: "QK",
+      name: "Bridge75",
     },
     {
       id: 4,
       img: "../assets/Carousel/keyboard_image4.jpg",
-      name: "Neo",
+      name: "Matrix MrTaxi",
+      sub: "Coming Soon..",
     },
   ];
 
@@ -27,8 +28,8 @@ $(document).ready(function () {
   carouselImg.forEach((item, index) => {
     const isActive = index === 0 ? " active" : "";
     const carouselItem = `
-      <div class="carousel-item${isActive}">
-        <img src="${item.img}" class="d-block w-100 object-fit-cover vh-100" alt="${item.name}" />
+      <div class="carousel-item${isActive} c-item">
+        <img src="${item.img}" class="d-block w-100 object-fit-cover c-img" alt="${item.name}" />
         <div class="carousel-caption">
           <h2>${item.name}</h2>
         </div>
