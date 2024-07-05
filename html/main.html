@@ -2,8 +2,10 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>navbar</title>
+    <title>ECHO_WORKS</title>
 
+    <!-- 파비콘 -->
+    <link rel="icon" href="../assets/img/logo.svg" />
     <!-- 구글 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,12 +59,12 @@
         font-size: 12px;
         margin: 0px 1px;
       }
-      
+
       .card img {
-            width: 100%;
-            height: 300px; /* 원하는 높이로 조정하세요 */
-            object-fit: cover;  /* 이미지 크기에 맞추어 자르기 */
-        }
+        width: 100%;
+        height: 300px; /* 원하는 높이로 조정하세요 */
+        object-fit: cover; /* 이미지 크기에 맞추어 자르기 */
+      }
 
       @media (max-width: 991px) {
         .sidebar {
@@ -70,6 +72,74 @@
           backdrop-filter: blur(10px);
         }
       }
+
+      body.modal-open {
+        overflow: hidden !important;
+        padding-right: 0 !important;
+      }
+
+      .offcanvas-backdrop {
+        display: none;
+      }
+
+      .call-to-action {
+        padding: 80px 0;
+        position: relative;
+        clip-path: inset(0);
+      }
+
+      .call-to-action img {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+      }
+
+      .call-to-action:before {
+        content: "";
+        background: color-mix(in srgb, rgb(74, 74, 74), transparent 50%);
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+      }
+
+      .call-to-action .container {
+        position: relative;
+        z-index: 3;
+      }
+
+      .call-to-action h3 {
+        font-size: 28px;
+        font-weight: 700;
+        color: white;
+      }
+
+      .call-to-action p {
+        color: white;
+      }
+
+      .call-to-action .cta-btn {
+        /* font-family: var(--heading-font); */
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 12px 40px;
+        border-radius: 5px;
+        transition: 0.5s;
+        margin: 10px;
+        border: 2px solid white;
+        color: white;
+      }
+
+      /* .call-to-action .cta-btn:hover {
+        background: var(--accent-color);
+        border: 2px solid var(--accent-color);
+      } */
     </style>
   </head>
   <body>
@@ -84,7 +154,7 @@
           href="#"
         >
           <img
-            src="../assets/img/logo.svg"
+            src="../assets/img/logo_light.svg"
             style="width: auto; height: 55px"
             alt="Logo"
           />
@@ -95,7 +165,7 @@
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
-          aria-controls="offcavasNavbar"
+          aria-controls="offcanvasNavbar"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -127,25 +197,6 @@
             >
               <li class="nav-item mx-2">
                 <a href="#Keyboards" class="nav-link text-white">Keyboards</a>
-              </li>
-              <li class="nav-link dropdown">
-                <a
-                  class="btn btn-secondary dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown link
-                </a>
-
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
               </li>
               <li class="nav-item dropdown mx-2">
                 <a
@@ -184,12 +235,10 @@
                 >Sign up</a
               >
             </div>
-            
           </div>
         </div>
       </div>
     </nav>
-
     <!-- Carousel -->
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -295,295 +344,201 @@
       <h2 class="text-center mb-4">BEST SELLING KEYBOARDS!</h2>
       <div class="album py-5">
         <div class="container">
-          <div
-            class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4"
-          >
-          <a href="#FROG_MINI" class="text-decoration-none">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
             <div class="col">
-              <div class="card shadow-sm" >
-                <img src="../assets/img/best1.jpg" alt="베스트 키보드1">
-                <div class="card-body">
-                  <h5 class="card-title">FROG MINI Barebone Kit</h5>
-                  <p class="card-text">
-                    설명글
-                  </p>
-                  <div
-                    class="d-flex justify-content-between"
-                  >
-                  <div>
-                    <small>평점 5.0</small>
-                    <small>리뷰 47</small>
-                  </div>
-                    <!-- <small class="text-body-secondary">9 mins</small> -->
-                    <span class="best_price">310,000원</span>
+              <a href="#FROG_MINI" class="text-decoration-none">
+                <div class="card shadow-sm">
+                  <img src="../assets/img/best1.jpg" alt="베스트 키보드1" />
+                  <div class="card-body">
+                    <h5 class="card-title">FROG MINI Barebone Kit</h5>
+                    <p class="card-text">설명글</p>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <small>평점 5.0</small>
+                        <small>리뷰 47</small>
+                      </div>
+                      <!-- <small class="text-body-secondary">9 mins</small> -->
+                      <span class="best_price">310,000원</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </a>
-          <a href="#FROG_MINI" class="text-decoration-none">
             <div class="col">
-              <div class="card shadow-sm">
-                <img src="../assets/img/best2.jpg" alt="베스트 키보드1">
-                  <title>Placeholder</title>
-                  <rect width="100%" height="100%" fill="#55595c"></rect>
-                </svg>
-                <div class="card-body">
-                  <h5 class="card-title">FROG MINI Barebone Kit</h5>
-                  <p class="card-text">
-                    설명글
-                  </p>
-                  <div
-                    class="d-flex justify-content-between"
-                  >
-                  <div>
-                    <small>평점 5.0</small>
-                    <small>리뷰 47</small>
-                  </div>
-                    <!-- <small class="text-body-secondary">9 mins</small> -->
-                    <span class="best_price">310,000원</span>
+              <a href="#FROG_MINI" class="text-decoration-none">
+                <div class="card shadow-sm">
+                  <img src="../assets/img/best1.jpg" alt="베스트 키보드1" />
+                  <div class="card-body">
+                    <h5 class="card-title">FROG MINI Barebone Kit</h5>
+                    <p class="card-text">설명글</p>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <small>평점 5.0</small>
+                        <small>리뷰 47</small>
+                      </div>
+                      <!-- <small class="text-body-secondary">9 mins</small> -->
+                      <span class="best_price">310,000원</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </a>
-          <a href="#FROG_MINI" class="text-decoration-none">
             <div class="col">
-              <div class="card shadow-sm">
-                <img src="../assets/img/best5.jpg" alt="베스트 키보드1">
-                  <title>Placeholder</title>
-                  <rect width="100%" height="100%" fill="#55595c"></rect>
-                </svg>
-                <div class="card-body">
-                  <h5 class="card-title">FROG MINI Barebone Kit</h5>
-                  <p class="card-text">
-                    설명글
-                  </p>
-                  <div
-                    class="d-flex justify-content-between"
-                  >
-                  <div>
-                    <small>평점 5.0</small>
-                    <small>리뷰 47</small>
-                  </div>
-                    <!-- <small class="text-body-secondary">9 mins</small> -->
-                    <span class="best_price">310,000원</span>
+              <a href="#FROG_MINI" class="text-decoration-none">
+                <div class="card shadow-sm">
+                  <img src="../assets/img/best1.jpg" alt="베스트 키보드1" />
+                  <div class="card-body">
+                    <h5 class="card-title">FROG MINI Barebone Kit</h5>
+                    <p class="card-text">설명글</p>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <small>평점 5.0</small>
+                        <small>리뷰 47</small>
+                      </div>
+                      <!-- <small class="text-body-secondary">9 mins</small> -->
+                      <span class="best_price">310,000원</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </a>
-          <a href="#FROG_MINI" class="text-decoration-none">
             <div class="col">
-              <div class="card shadow-sm">
-                <img src="../assets/img/best4.jpg" alt="베스트 키보드1">
-                  <title>Placeholder</title>
-                  <rect width="100%" height="100%" fill="#55595c"></rect>
-                </svg>
-                <div class="card-body">
-                  <h5 class="card-title">FROG MINI Barebone Kit</h5>
-                  <p class="card-text">
-                    설명글
-                  </p>
-                  <div
-                    class="d-flex justify-content-between"
-                  >
-                  <div>
-                    <small>평점 5.0</small>
-                    <small>리뷰 47</small>
-                  </div>
-                    <!-- <small class="text-body-secondary">9 mins</small> -->
-                    <span class="best_price">310,000원</span>
+              <a href="#FROG_MINI" class="text-decoration-none">
+                <div class="card shadow-sm">
+                  <img src="../assets/img/best1.jpg" alt="베스트 키보드1" />
+                  <div class="card-body">
+                    <h5 class="card-title">FROG MINI Barebone Kit</h5>
+                    <p class="card-text">설명글</p>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <small>평점 5.0</small>
+                        <small>리뷰 47</small>
+                      </div>
+                      <!-- <small class="text-body-secondary">9 mins</small> -->
+                      <span class="best_price">310,000원</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <!-- <div class="row">
-        <div class="col-md-3 mb-4">
-          <div class="card best-seller-item">
-            <img
-              src="keyboard1.jpg"
-              class="card-img-top"
-              alt="Coretekeys NE035 Blacklace Kit"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Coretekeys NE035 Blacklace Kit</h5>
-              <p class="card-text">₩37,500</p>
-              <a href="#" class="btn btn-warning btn-sm">품절</a>
+              </a>
             </div>
           </div>
-        </div>
-        <div class="col-md-3 mb-4">
-          <div class="card best-seller-item">
-            <img
-              src="keyboard2.jpg"
-              class="card-img-top"
-              alt="Coretekeys QKB42 Classic Blacklace Kit"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Coretekeys QKB42 Classic Blacklace Kit</h5>
-              <p class="card-text">₩37,500</p>
-              <a href="#" class="btn btn-warning btn-sm">품절</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 mb-4">
-          <div class="card best-seller-item">
-            <img
-              src="keyboard3.jpg"
-              class="card-img-top"
-              alt="SC Studio Bridge75 기본키트 샴페인골드"
-            />
-            <div class="card-body">
-              <h5 class="card-title">SC Studio Bridge75 기본키트 샴페인골드</h5>
-              <p class="card-text">₩37,500</p>
-              <a href="#" class="btn btn-warning btn-sm">품절</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 mb-4">
-          <div class="card best-seller-item">
-            <img
-              src="keyboard4.jpg"
-              class="card-img-top"
-              alt="[In-stock] Coretekeys NE265 Blacklace Kit"
-            />
-            <div class="card-body">
-              <h5 class="card-title">
-                [In-stock] Coretekeys NE265 Blacklace Kit
-              </h5>
-              <p class="card-text">₩37,500</p>
-              <a href="#" class="btn btn-primary btn-sm">구매하기</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-    </div>
-
-    <!-- 게시판 목록 -->
-    <!-- <div class="container mt-5">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>공지사항</th>
-            <th>제목</th>
-            <th>날짜</th>
-            <th>조회수</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>73</td>
-            <td>[공지] Telegram 설치 방법을 확인해 주세요.</td>
-            <td>2023-06-30</td>
-            <td>1205</td>
-          </tr>
-          <tr>
-            <td>72</td>
-            <td>SC QK5 Main Shipping Package 안내</td>
-            <td>2023-06-29</td>
-            <td>279</td>
-          </tr>
-          <tr>
-            <td>71</td>
-            <td>SC Studio Bridge75 레드 추가 수량 안내</td>
-            <td>2023-06-28</td>
-            <td>189</td>
-          </tr>
-          <tr>
-            <td>70</td>
-            <td>
-              SC Studio Bridge75 검은색 추가 수량 안내(6/14 20시부터 판매)
-            </td>
-            <td>2023-06-27</td>
-            <td>146</td>
-          </tr>
-          <tr>
-            <td>69</td>
-            <td>SC Studio Bridge75 검은색 추가 수량 안내</td>
-            <td>2023-06-26</td>
-            <td>351</td>
-          </tr>
-        </tbody>
-      </table>
-      <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">4</a></li>
-          <li class="page-item"><a class="page-link" href="#">5</a></li>
-        </ul>
-      </nav>
-    </div> -->
-
-    <!-- 추천 상품 -->
-    <div class="container mt-5">
-      <div class="row">
-        <div class="col-md-6">
-          <img
-            src="stationery.jpg"
-            class="img-fluid"
-            alt="나이트 스테빌라이저"
-          />
-        </div>
-        <div class="col-md-6">
-          <h3>나이트 스테빌라이저</h3>
-          <p>16,000원</p>
-          <button class="btn btn-dark">BUY NOW</button>
         </div>
       </div>
     </div>
-
-    <!-- 회사 소개 -->
-    <div class="container-fluid bg-light mt-5 py-5">
+    <section id="call-to-action" class="call-to-action section dark-background">
+      <img src="../assets/img/cta-bg.jpg" alt="" />
       <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h2>OUR STORY</h2>
-            <!-- 회사 소개 내용 -->
-          </div>
-          <div class="col-md-6">
-            <h2>OUR VISION</h2>
-            <!-- 비전 내용 -->
+        <div
+          class="row justify-content-center"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
+          <div class="col-xl-10">
+            <div class="text-center">
+              <h3>EACHWORKS</h3>
+              <p>
+                ECHOWORKS는 국내 커스텀 키보드 시장의 유통사로서 독보적인 존재가
+                되어가고 있습니다. 각종 키보드의 벤더이고, 많은 GB도 진행을 하고
+                있습니다. 유통사가 있다는 것만으로도 충분히 반가운 부분입니다.
+                제조사인 ITI 특주축 제조로는 나름 알려진 곳 입니다.
+              </p>
+              <!-- <a class="cta-btn" href="#">Call To Action</a> -->
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
+    </section>
     <!-- Footer -->
-    <footer class="bg-dark text-light py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <p>회사 정보 및 주소</p>
-          </div>
-          <div class="col-md-6 text-end">
-            <img src="discord_icon.png" alt="Discord" class="footer-icon" />
-            <img src="shop_icon.png" alt="Shop" class="footer-icon" />
-            <img src="youtube_icon.png" alt="YouTube" class="footer-icon" />
-            <img src="instagram_icon.png" alt="Instagram" class="footer-icon" />
-            <img src="blog_icon.png" alt="Blog" class="footer-icon" />
-            <img src="kakao_icon.png" alt="Kakao" class="footer-icon" />
-          </div>
+    <div class="container">
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <div class="col-md-4 d-flex align-items-center">
+          <a
+            href="/"
+            class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
+          >
+            <svg class="bi" width="30" height="24">
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+          </a>
+          <span class="mb-3 mb-md-0 text-body-secondary"
+            >© 2024 Company, Inc</span
+          >
         </div>
-      </div>
-    </footer>
 
-    <!-- 부트스트랩 JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-      crossorigin="anonymous"
-    ></script>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#">강민구</a>
+          </li>
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#">강민구</a>
+          </li>
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#">강민구</a>
+          </li>
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#">강민구</a>
+          </li>
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#">강민구</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <section class="p-4">
+      <!-- Footer -->
+      <footer class="text-center text-lg-start text-muted">
+        <!-- Section: Links  -->
+        <section class="">
+          <div class="container text-center mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-4 mx-auto mb-4">
+                <!-- Content -->
+
+                <h6 class="text-uppercase fw-bold mb-4">
+                  <img src="../assets/img/logo_dark.svg" width="70px" alt="" />
+                  <!-- EchoWorks -->
+                </h6>
+                <!-- <p class="text-md-start">
+                  ECHOWORKS는 국내 커스텀 키보드 시장의 유통사로서 독보적인
+                  존재가 되어가고 있습니다. 각종 키보드의 벤더이고, 많은 GB도
+                  진행을 하고 있습니다. 유통사가 있다는 것만으로도 충분히 반가운
+                  부분입니다. 제조사인 ITI 특주축 제조로는 나름 알려진 곳
+                  입니다.
+                </p> -->
+              </div>
+
+              <!-- Grid column -->
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4 text-lg-start">
+                  Contact
+                </h6>
+                <div class="text-lg-start">
+                  <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                  <p>
+                    <i class="fas fa-envelope me-3"></i>
+                    info@example.com
+                  </p>
+                  <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                  <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                </div>
+              </div>
+              <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+          </div>
+        </section>
+
+        <!-- Copyright -->
+        <div class="text-center p-4">© 2024 ECHOWORKS</div>
+        <!-- Copyright -->
+      </footer>
+      <!-- Footer -->
+    </section>
     <script>
       // 햄버거바일 때 메뉴바에 있는 글씨가 흰색이라 안보임
       document.addEventListener("DOMContentLoaded", function () {
@@ -609,5 +564,17 @@
         });
       });
     </script>
+
+    <!-- 부트스트랩 JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
