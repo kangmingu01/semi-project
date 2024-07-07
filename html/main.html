@@ -5,7 +5,7 @@
     <title>ECHO_WORKS</title>
 
     <!-- 파비콘 -->
-    <link rel="icon" href="../assets/img/logo.svg" />
+    <link rel="icon" href="../assets/img/logo_light.svg" />
     <!-- 구글 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,9 +21,47 @@
     />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <!-- 공유 CSS -->
     <link rel="stylesheet" href="/css/style.css" />
     <style>
+      /* Best Selling Keyboards */
+      .card img {
+        width: 100%;
+        height: 300px; /* 원하는 높이로 조정하세요 */
+        object-fit: cover; /* 이미지 크기에 맞추어 자르기 */
+      }
+
+      small {
+        color: rgb(66, 59, 59);
+        font-size: 12px;
+        margin: 0px 1px;
+      }
+
+      /* 카르셀 */
+
+      .carousel-caption {
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      /* hover시 컬러 바뀌게 */
+      .details:hover {
+        color: black;
+        background-color: white;
+        border-color: black;
+      }
+
       .c-item {
         height: 880px;
       }
@@ -37,53 +75,9 @@
         transition: transform 1.5s ease;
       }
 
-      /* flex-shrink: 자동으로 아이템 너비가 축소되지 않도록 하려면 사용*/
-      .d-flex.justify-content-end {
-        flex-shrink: 0;
-      }
-
-      .carousel-caption {
-        top: 60%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-      }
-
-      /* 햄버거 아이콘 흰색으로 */
-      .navbar-toggler-icon {
-        background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 1%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
-      }
-
-      small {
-        color: gray;
-        font-size: 12px;
-        margin: 0px 1px;
-      }
-
-      .card img {
-        width: 100%;
-        height: 300px; /* 원하는 높이로 조정하세요 */
-        object-fit: cover; /* 이미지 크기에 맞추어 자르기 */
-      }
-
-      @media (max-width: 991px) {
-        .sidebar {
-          background-color: rgb(74, 74, 74);
-          backdrop-filter: blur(10px);
-        }
-      }
-
-      body.modal-open {
-        overflow: hidden !important;
-        padding-right: 0 !important;
-      }
-
-      .offcanvas-backdrop {
-        display: none;
-      }
-
+      /* 스크롤 내릴때 사진내려가게 설계 */
       .call-to-action {
-        padding: 80px 0;
+        padding: 150px 0;
         position: relative;
         clip-path: inset(0);
       }
@@ -97,6 +91,7 @@
         height: 100%;
         object-fit: cover;
         z-index: 1;
+        filter: brightness(0.7);
       }
 
       .call-to-action:before {
@@ -119,11 +114,11 @@
       }
 
       .call-to-action p {
+        font-size: 18px;
         color: white;
       }
 
       .call-to-action .cta-btn {
-        /* font-family: var(--heading-font); */
         font-weight: 500;
         font-size: 16px;
         letter-spacing: 1px;
@@ -135,11 +130,6 @@
         border: 2px solid white;
         color: white;
       }
-
-      /* .call-to-action .cta-btn:hover {
-        background: var(--accent-color);
-        border: 2px solid var(--accent-color);
-      } */
     </style>
   </head>
   <body>
@@ -195,36 +185,100 @@
             <ul
               class="navbar-nav justify-content-center fs-5 flex-grow-1 ps-lg-5 ms-lg-5"
             >
-              <li class="nav-item mx-2">
-                <a href="#Keyboards" class="nav-link text-white">Keyboards</a>
+              <li class="nav-item dropdown mx-2">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Keyboards
+                </a>
+                <ul
+                  class="dropdown-menu bg-dark"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li>
+                    <a class="dropdown-item text-white" href="#"
+                      >KeyBoard In-Stock</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#"
+                      >KeyBoard Group-buy</a
+                    >
+                  </li>
+                </ul>
               </li>
               <li class="nav-item dropdown mx-2">
                 <a
+                  class="nav-link dropdown-toggle"
                   href="#"
-                  class="nav-link dropdown-toggle text-white"
-                  role=""
+                  id="navbarDropdown"
+                  role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                  >Switches</a
                 >
-                <ul class="dropdown-menu">
-                  <li><a href="#" class="dropdown-item">리니어</a></li>
-                  <li><a href="#" class="dropdown-item">택타일</a></li>
-                  <li><a href="#" class="dropdown-item">저소음</a></li>
-                  <li><a href="#" class="dropdown-item">마그네틱</a></li>
+                  Switches
+                </a>
+                <ul
+                  class="dropdown-menu bg-dark"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li>
+                    <a class="dropdown-item text-white" href="#">리니어</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">택타일</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">저소음</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">마그네틱</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown mx-2">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Keycaps
+                </a>
+                <ul
+                  class="dropdown-menu bg-dark"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li>
+                    <a class="dropdown-item text-white" href="#">SW</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">FBB</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">GMK</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">Hammerworks</a>
+                  </li>
                 </ul>
               </li>
               <li class="nav-item mx-2">
-                <a href="#Keycaps" class="nav-link text-white">Keycaps</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a href="#Deskpads" class="nav-link text-white">Deskpads</a>
+                <a href="#Deskpads" class="nav-link">Deskpads</a>
               </li>
             </ul>
 
+            <!-- 내일 이 부분 디자인 어떤식으로 진행할지 고민해보기 -->
             <!-- Login/ Sign up -->
             <div
-              class="d-flex justify-content-center align-items-center gap-3 flex-nowrap"
+              class="d-flex justify-content-center align-items-center gap-3 flex-nowrap login"
             >
               <a href="#login" class="text-decoration-none text-white fs-5"
                 >Login</a
@@ -281,7 +335,9 @@
           />
           <div class="carousel-caption d-none d-md-block">
             <h1 class="fs-1">The New SixtyFive</h1>
-            <p class="btn border-2 border-white fs-5 text-white ps-3 mt-1">
+            <p
+              class="btn border-2 border-white fs-5 text-white ps-3 mt-1 details"
+            >
               자세히 보기 >
             </p>
           </div>
@@ -302,7 +358,9 @@
           />
           <div class="carousel-caption d-none d-md-block">
             <h1 class="fs-1">Bridge75</h1>
-            <p class="btn border-2 border-white fs-5 text-white ps-3 mt-1">
+            <p
+              class="btn border-2 border-white fs-5 text-white ps-3 mt-1 details"
+            >
               자세히 보기 >
             </p>
           </div>
@@ -319,24 +377,6 @@
           </div>
         </div>
       </div>
-      <!-- <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#hero-carousel"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#hero-carousel"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button> -->
     </div>
 
     <!-- Best Selling Keyboards -->
@@ -357,7 +397,6 @@
                         <small>평점 5.0</small>
                         <small>리뷰 47</small>
                       </div>
-                      <!-- <small class="text-body-secondary">9 mins</small> -->
                       <span class="best_price">310,000원</span>
                     </div>
                   </div>
@@ -367,7 +406,7 @@
             <div class="col">
               <a href="#FROG_MINI" class="text-decoration-none">
                 <div class="card shadow-sm">
-                  <img src="../assets/img/best1.jpg" alt="베스트 키보드1" />
+                  <img src="../assets/img/best2.jpg" alt="베스트 키보드1" />
                   <div class="card-body">
                     <h5 class="card-title">FROG MINI Barebone Kit</h5>
                     <p class="card-text">설명글</p>
@@ -376,7 +415,6 @@
                         <small>평점 5.0</small>
                         <small>리뷰 47</small>
                       </div>
-                      <!-- <small class="text-body-secondary">9 mins</small> -->
                       <span class="best_price">310,000원</span>
                     </div>
                   </div>
@@ -386,7 +424,7 @@
             <div class="col">
               <a href="#FROG_MINI" class="text-decoration-none">
                 <div class="card shadow-sm">
-                  <img src="../assets/img/best1.jpg" alt="베스트 키보드1" />
+                  <img src="../assets/img/best3.jpg" alt="베스트 키보드1" />
                   <div class="card-body">
                     <h5 class="card-title">FROG MINI Barebone Kit</h5>
                     <p class="card-text">설명글</p>
@@ -395,7 +433,6 @@
                         <small>평점 5.0</small>
                         <small>리뷰 47</small>
                       </div>
-                      <!-- <small class="text-body-secondary">9 mins</small> -->
                       <span class="best_price">310,000원</span>
                     </div>
                   </div>
@@ -405,7 +442,7 @@
             <div class="col">
               <a href="#FROG_MINI" class="text-decoration-none">
                 <div class="card shadow-sm">
-                  <img src="../assets/img/best1.jpg" alt="베스트 키보드1" />
+                  <img src="../assets/img/best4.jpg" alt="베스트 키보드1" />
                   <div class="card-body">
                     <h5 class="card-title">FROG MINI Barebone Kit</h5>
                     <p class="card-text">설명글</p>
@@ -414,7 +451,6 @@
                         <small>평점 5.0</small>
                         <small>리뷰 47</small>
                       </div>
-                      <!-- <small class="text-body-secondary">9 mins</small> -->
                       <span class="best_price">310,000원</span>
                     </div>
                   </div>
@@ -435,135 +471,149 @@
         >
           <div class="col-xl-10">
             <div class="text-center">
-              <h3>EACHWORKS</h3>
+              <h3>ECHOWORKS</h3>
               <p>
                 ECHOWORKS는 국내 커스텀 키보드 시장의 유통사로서 독보적인 존재가
                 되어가고 있습니다. 각종 키보드의 벤더이고, 많은 GB도 진행을 하고
                 있습니다. 유통사가 있다는 것만으로도 충분히 반가운 부분입니다.
                 제조사인 ITI 특주축 제조로는 나름 알려진 곳 입니다.
               </p>
-              <!-- <a class="cta-btn" href="#">Call To Action</a> -->
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Footer -->
-    <div class="container">
-      <footer
-        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
-      >
-        <div class="col-md-4 d-flex align-items-center">
-          <a
-            href="/"
-            class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
-          >
-            <svg class="bi" width="30" height="24">
-              <use xlink:href="#bootstrap"></use>
-            </svg>
-          </a>
-          <span class="mb-3 mb-md-0 text-body-secondary"
-            >© 2024 Company, Inc</span
-          >
-        </div>
 
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-          <li class="ms-3">
-            <a class="text-body-secondary" href="#">강민구</a>
-          </li>
-          <li class="ms-3">
-            <a class="text-body-secondary" href="#">강민구</a>
-          </li>
-          <li class="ms-3">
-            <a class="text-body-secondary" href="#">강민구</a>
-          </li>
-          <li class="ms-3">
-            <a class="text-body-secondary" href="#">강민구</a>
-          </li>
-          <li class="ms-3">
-            <a class="text-body-secondary" href="#">강민구</a>
-          </li>
-        </ul>
-      </footer>
-    </div>
-    <section class="p-4">
-      <!-- Footer -->
-      <footer class="text-center text-lg-start text-muted">
-        <!-- Section: Links  -->
-        <section class="">
-          <div class="container text-center mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-4 mx-auto mb-4">
-                <!-- Content -->
+    <!-- footer -->
+    <footer class="bg-dark pt-5">
+      <div class="py-12 border-bottom border-gray-700">
+        <div class="container pb-5">
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <!-- Heading -->
+              <h4 class="mb-6 text-white text-center">ECHOWORKS</h4>
 
-                <h6 class="text-uppercase fw-bold mb-4">
-                  <img src="../assets/img/logo_dark.svg" width="70px" alt="" />
-                  <!-- EchoWorks -->
-                </h6>
-                <!-- <p class="text-md-start">
-                  ECHOWORKS는 국내 커스텀 키보드 시장의 유통사로서 독보적인
-                  존재가 되어가고 있습니다. 각종 키보드의 벤더이고, 많은 GB도
-                  진행을 하고 있습니다. 유통사가 있다는 것만으로도 충분히 반가운
-                  부분입니다. 제조사인 ITI 특주축 제조로는 나름 알려진 곳
-                  입니다.
-                </p> -->
-              </div>
-
-              <!-- Grid column -->
-              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4 text-lg-start">
-                  Contact
-                </h6>
-                <div class="text-lg-start">
-                  <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-                  <p>
-                    <i class="fas fa-envelope me-3"></i>
-                    info@example.com
-                  </p>
-                  <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                  <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-                </div>
-              </div>
-              <!-- Grid column -->
+              <!-- Social -->
+              <ul
+                class="list-unstyled list-inline mb-7 mb-md-0 d-flex justify-content-center text-center align-items-center"
+              >
+                <li class="list-inline-item">
+                  <a href="#!" class="text-gray-350">
+                    <i class="fa-brands fa-x-twitter fs-5"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#!" class="text-gray-350">
+                    <i class="fa-brands fa-youtube fs-5"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#!" class="text-gray-350">
+                    <i class="fa-brands fa-instagram fs-5"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#!" class="text-gray-350">
+                    <i class="fa-brands fa-discord fs-5"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#!" class="text-gray-350">
+                    <i class="fa-brands fa-github fs-5"></i>
+                  </a>
+                </li>
+              </ul>
             </div>
-            <!-- Grid row -->
+            <div class="col-6 col-sm">
+              <!-- Heading -->
+              <h6 class="heading-xxs mb-4 text-white">MEMBER</h6>
+              <!-- Links -->
+              <ul class="list-unstyled mb-7 mb-sm-0">
+                <li>
+                  <a class="text-gray-300" href="#">강민구</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="#">강성환</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="#">김혜련</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="#">이정현</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="#">조원익</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm">
+              <!-- Heading -->
+              <h6 class="heading-xxs mb-4 text-white">Shop</h6>
+
+              <!-- Links: 나중에 여기에 상품 링크 걸면 될 듯 -->
+              <ul class="list-unstyled mb-7 mb-sm-0">
+                <li>
+                  <a class="text-gray-300" href="#">Keyboards</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="#">Switches</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="#">Keycaps</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="#">Deskpads</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm">
+              <!-- Heading -->
+              <h6 class="heading-xxs mb-4 text-white">Company</h6>
+
+              <!-- Links -->
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a class="text-gray-300" href="./about.html">Our Story</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="#!">Careers</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="#!">Terms &amp; Conditions</a>
+                </li>
+                <li>
+                  <a class="text-gray-300" href="#!"
+                    >Privacy &amp; Cookie policy</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm">
+              <!-- Heading -->
+              <h6 class="heading-xxs mb-4 text-white">Contact</h6>
+
+              <!-- Links -->
+              <ul class="list-unstyled mb-0" style="text-align: left">
+                <li>
+                  <i class="fas fa-home me-3 text-white-50"></i>
+                  <a class="text-gray-300" href="#!"
+                    >서울특별시 강남구 역삼동</a
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-envelope me-3 text-white-50"></i>
+                  <a class="text-gray-300" href="#!">02-6255-8002</a>
+                </li>
+                <li>
+                  <i class="fas fa-phone me-3 text-white-50"></i>
+                  <a class="text-gray-300" href="#!">EW@itwill.com</a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </section>
-
-        <!-- Copyright -->
-        <div class="text-center p-4">© 2024 ECHOWORKS</div>
-        <!-- Copyright -->
-      </footer>
-      <!-- Footer -->
-    </section>
-    <script>
-      // 햄버거바일 때 메뉴바에 있는 글씨가 흰색이라 안보임
-      document.addEventListener("DOMContentLoaded", function () {
-        var offcanvasElement = document.getElementById("offcanvasNavbar");
-        var navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-        var loginLink = document.querySelector('a[href="#login"]');
-        var signupLink = document.querySelector('a[href="#signup"]');
-
-        offcanvasElement.addEventListener("show.bs.offcanvas", function () {
-          navLinks.forEach(function (link) {
-            link.style.color = "black";
-          });
-          loginLink.style.color = "black";
-          signupLink.style.color = "black";
-        });
-
-        offcanvasElement.addEventListener("hidden.bs.offcanvas", function () {
-          navLinks.forEach(function (link) {
-            link.style.color = "white";
-          });
-          loginLink.style.color = "white";
-          signupLink.style.color = "white";
-        });
-      });
-    </script>
+        </div>
+      </div>
+    </footer>
 
     <!-- 부트스트랩 JS -->
     <script
